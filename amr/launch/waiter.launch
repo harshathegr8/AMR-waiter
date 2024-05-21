@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="mic2" default="/dev/lily" />
+	<node pkg="rosserial_python" type="serial_node.py" name="recv" args="$(arg mic2)"/>
+	<include file="$(find amr)/launch/amcl_loc.launch"/>
+	<node name="server" pkg = "amr" type="server_nav.py"/>
+</launch>
